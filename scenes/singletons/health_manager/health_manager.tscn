@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://tupif57224o7"]
+
+[node name="HealthManager" type="Node"]

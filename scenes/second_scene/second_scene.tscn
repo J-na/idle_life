@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpe3f5ko5h5g8"]
+
+[ext_resource type="Script" uid="uid://baag01w4u3fkg" path="res://scenes/second_scene/second_scene.gd" id="1_qt48x"]
+[ext_resource type="StyleBox" uid="uid://bkip4ff5aqvrs" path="res://assets/themes/style_box_flat/transparent.tres" id="2_km0by"]
+
+[node name="SecondScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qt48x")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_km0by")
+current_tab = 0
+tabs_visible = false
+tab_focus_mode = 0
+
+[node name="Locked" type="Control" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="UnlockButton" type="Button" parent="TabContainer/Locked"]
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+text = "Unlock
+(25 idleons)"
+
+[node name="Label" type="Label" parent="TabContainer/Locked"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -58.5
+offset_right = 58.5
+offset_bottom = 49.0
+grow_horizontal = 2
+theme_type_variation = &"HeaderLarge"
+text = "Second feature
+	- locked - "
+
+[node name="Unlocked" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1

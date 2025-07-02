@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3t5iyrk83f5f"]
+
+[ext_resource type="Script" uid="uid://bmemjwxc4i56c" path="res://scenes/first_scene/first_scene.gd" id="1_mgu5x"]
+
+[node name="FirstScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mgu5x")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Money: $<value>"
+
+[node name="Button" type="Button" parent="MarginContainer"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+focus_mode = 0
+text = "Work job"
+
+[node name="SaveClearButton" type="Button" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2

@@ -1,0 +1,43 @@
+[gd_scene load_steps=10 format=3 uid="uid://d3kcmvxcal73r"]
+
+[ext_resource type="Script" uid="uid://d4abjjrhlsu8" path="res://scenes/singletons/game/game.gd" id="1_udbrr"]
+[ext_resource type="PackedScene" uid="uid://cq0ir5anikmon" path="res://scenes/singletons/cash_manager/cash_manager.tscn" id="2_5nw6e"]
+[ext_resource type="PackedScene" uid="uid://dp2m8dque1hp4" path="res://scenes/singletons/clock/clock.tscn" id="2_rcnbx"]
+[ext_resource type="PackedScene" uid="uid://c3t5iyrk83f5f" path="res://scenes/first_scene/first_scene.tscn" id="2_ub0xn"]
+[ext_resource type="PackedScene" uid="uid://bsw8lofm7jyhk" path="res://scenes/singletons/cash_generator/cash_generator.tscn" id="3_dos5a"]
+[ext_resource type="PackedScene" uid="uid://cm45pdtl8cr0k" path="res://scenes/singletons/stress_manager/stress_manager.tscn" id="3_natk1"]
+[ext_resource type="PackedScene" uid="uid://cpe3f5ko5h5g8" path="res://scenes/second_scene/second_scene.tscn" id="3_ub0xn"]
+[ext_resource type="PackedScene" uid="uid://tupif57224o7" path="res://scenes/singletons/health_manager/health_manager.tscn" id="4_uuoi2"]
+[ext_resource type="Script" uid="uid://dymh61q4ncpew" path="res://scenes/singletons/health_manager/health_manager.gd" id="5_wy5w4"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_udbrr")
+
+[node name="Clock" parent="." instance=ExtResource("2_rcnbx")]
+
+[node name="CashManager" parent="." instance=ExtResource("2_5nw6e")]
+
+[node name="HealthManager" parent="." instance=ExtResource("4_uuoi2")]
+script = ExtResource("5_wy5w4")
+
+[node name="StressManager" parent="." instance=ExtResource("3_natk1")]
+
+[node name="IdleonGenerator" parent="." instance=ExtResource("3_dos5a")]
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.00418)
+current_tab = 0
+
+[node name="FirstScene" parent="TabContainer" instance=ExtResource("2_ub0xn")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="SecondScene" parent="TabContainer" instance=ExtResource("3_ub0xn")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1

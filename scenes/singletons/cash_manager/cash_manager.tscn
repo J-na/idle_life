@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq0ir5anikmon"]
+
+[ext_resource type="Script" uid="uid://e64jqexthqwp" path="res://scenes/singletons/cash_manager/cash_manager.gd" id="1_ra4k8"]
+
+[node name="CashManager" type="Node"]
+script = ExtResource("1_ra4k8")
