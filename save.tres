@@ -1,20 +1,43 @@
-[gd_resource type="Resource" script_class="Data" load_steps=6 format=3]
+[gd_resource type="Resource" script_class="Data" load_steps=10 format=3]
 
-[ext_resource type="Script" path="res://data_structures/data/data_progression.gd" id="1_es2m0"]
-[ext_resource type="Script" path="res://data_structures/data/data_resources.gd" id="2_2a428"]
-[ext_resource type="Script" path="res://data_structures/data.gd" id="3_g275r"]
+[ext_resource type="Script" path="res://data_structures/activities/activity_parameters.gd" id="1_sum32"]
+[ext_resource type="Script" path="res://data_structures/data/data_activities.gd" id="2_v37re"]
+[ext_resource type="Script" path="res://data_structures/data/data_progression.gd" id="3_d1hw3"]
+[ext_resource type="Script" path="res://data_structures/data/data_resources.gd" id="4_rqh7u"]
+[ext_resource type="Script" path="res://data_structures/data/data.gd" id="5_ddq2i"]
 
-[sub_resource type="Resource" id="Resource_hwe41"]
-script = ExtResource("1_es2m0")
+[sub_resource type="Resource" id="Resource_pt7fg"]
+script = ExtResource("1_sum32")
+parameter_data_index = 0
+assigned_time = 0
+max_time = 9
+cash_change = 10
+stress_change = -1
+hp_change = 0
+energy_change = -3
+
+[sub_resource type="Resource" id="Resource_ftcuf"]
+script = ExtResource("2_v37re")
+activity_states = Array[ExtResource("1_sum32")]([SubResource("Resource_pt7fg")])
+
+[sub_resource type="Resource" id="Resource_2ejmb"]
+script = ExtResource("3_d1hw3")
 generator_unlocked = false
 
-[sub_resource type="Resource" id="Resource_uffwo"]
-script = ExtResource("2_2a428")
-cash = 0
+[sub_resource type="Resource" id="Resource_r0v35"]
+script = ExtResource("4_rqh7u")
+cash = 290
 stress = 0
-health = 100
+max_stress = 100
+hp = 100
+max_hp = 100
+energy = 18
+max_energy = 100
+days_passed = 14
+available_hours = 24
 
 [resource]
-script = ExtResource("3_g275r")
-resources = SubResource("Resource_uffwo")
-progression = SubResource("Resource_hwe41")
+script = ExtResource("5_ddq2i")
+resources = SubResource("Resource_r0v35")
+progression = SubResource("Resource_2ejmb")
+activities = SubResource("Resource_ftcuf")

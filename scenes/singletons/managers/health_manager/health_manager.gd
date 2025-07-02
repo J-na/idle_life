@@ -15,20 +15,21 @@ signal health_updated
 
 var data: Data = Game.ref.data
 
-func get_health() -> int:
-	return data.resources.health
+func get_hp() -> Array:
+	return [data.resources.hp, data.resources.max_hp]
 
-func gain_health(quantity: int) -> Error:
-	if quantity <= 0: return FAILED
-	if data.resources.health + quantity > 100: return FAILED
-	data.resources.health += quantity
+func change_hp(quantity: int) -> Error:
+	if data.resources.hp + quantity > data.resources.max_hp: return FAILED
+	data.resources.hp += quantity
 	health_updated.emit()
+	if data.resources.hp < 0: 
+		data.resources.hp = 0
+		print("You died!")
 	return OK
-
-func lose_health(quantity: int) -> Error:
-	if quantity < 0: return FAILED
-	if quantity > data.resources.health: print_debug("you died")
-	data.resources.health -= quantity
+	
+func change_max_hp(quantity: int) -> Error:
+	data.resources.max_hp += quantity
+	data.resources.hp += quantity
 	health_updated.emit()
 	return OK
 
@@ -43,5 +44,5 @@ func _ready() -> void:
 func _progress_cycle() -> void:
 	_cycle_progression += _cycle_speed
 	if _cycle_progression >= _cycle_duration:
-		var error: Error = lose_health(_regeneration_amount)
+		var error: Error = change_hp(_regeneration_amount)
 		if error == OK: health_updated.emit()

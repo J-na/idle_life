@@ -21,4 +21,6 @@ func _progress_cycle() -> void:
 	_cycle_progression += 1.0
 	if _cycle_progression >= _cycle_duration:
 		_cycle_progression -= _cycle_duration
-		CashManager.ref.create_cash(_production_amount)
+		var error: Error = CashManager.ref.change_cash(_production_amount)
+		if error != OK:
+			print_debug("something wrong with cash generator")

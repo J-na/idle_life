@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm45pdtl8cr0k"]
+
+[ext_resource type="Script" uid="uid://bxnp17isvnrru" path="res://scenes/singletons/managers/stress_manager/stress_manager.gd" id="1_7tefm"]
+
+[node name="StressManager" type="Node"]
+script = ExtResource("1_7tefm")

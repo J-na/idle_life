@@ -1,0 +1,19 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cyg5ph8t5r3an"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qdcr"]
+bg_color = Color(1, 0.00521037, 0.00695682, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2cwc"]
+resource_name = "red_style_box"
+bg_color = Color(0, 1, 0, 1)
+
+[resource]
+/colors/bg_color = Color(1, 0, 0, 1)
+ProgressBar/colors/font_color = Color(0, 0, 0, 1)
+ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
+ProgressBar/constants/outline_size = 0
+ProgressBar/font_sizes/font_size = 16
+ProgressBar/fonts/font = null
+ProgressBar/styles/background = SubResource("StyleBoxFlat_0qdcr")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_s2cwc")
+metadata/bg_color = Color(1, 0, 0, 1)

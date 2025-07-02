@@ -15,7 +15,7 @@ func _display_view(unlocked: bool = false) -> void:
 	($TabContainer as TabContainer).current_tab = int(unlocked)
 	
 func _on_unlock_button_pressed() -> void:
-	var error: Error = CashManager.ref.consume_cash(COST)
+	var error: Error = CashManager.ref.change_cash(-1*COST)
 	if error: return
 	Game.ref.data.progression.generator_unlocked = true
 	_display_view(true)

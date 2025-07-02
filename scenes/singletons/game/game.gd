@@ -8,7 +8,7 @@ func _init() -> void: ##Constructor
 	if not ref: ref = self 
 	else: queue_free()
 
-const PATH: String = "C://Users//jonat//OneDrive//Documenten//Gamedev stuff//idle_life//save.tres"
+const PATH: String = "res://save.tres"
 var data: Data = load_data() ##main data object of the game
 
 func load_data() -> Data:
@@ -25,7 +25,12 @@ func _exit_tree() -> void:
 func clear_data() -> void:
 	data.resources.cash = 0 ## amount of cash owned by the player
 	data.resources.stress = 0
-	data.resources.health = 100
+	data.resources.hp = 100
+	data.resources.energy = 100
+	data.resources.days_passed = 0
+	data.resources.available_hours = 24
+	data.activities.activity_states[0].assigned_time = 0
 	data.progression.generator_unlocked = false
+	
 	
 		

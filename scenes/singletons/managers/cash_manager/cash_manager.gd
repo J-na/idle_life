@@ -16,16 +16,10 @@ var data: Data = Game.ref.data
 func get_cash() -> int:
 	return data.resources.cash
 
-func create_cash(quantity: int) -> void:
-	if quantity <= 0: 
-		print_debug("Attempted to create negative or zero cash")
-		return 
+func change_cash(quantity: int) -> Error:
+	if  data.resources.cash + quantity < 0: 
+		print("Not enough money")
+		return FAILED
 	data.resources.cash += quantity
-	cash_updated.emit()
-
-func consume_cash(quantity: int) -> Error:
-	if quantity < 0: return FAILED
-	if quantity > data.resources.cash: return FAILED
-	data.resources.cash -= quantity
 	cash_updated.emit()
 	return OK
