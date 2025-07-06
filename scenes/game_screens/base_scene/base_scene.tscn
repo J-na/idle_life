@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcdij0gerebj4"]
+
+[ext_resource type="Script" uid="uid://btenpdsxat1yb" path="res://scenes/game_screens/base_scene/base_scene.gd" id="1_b3k4r"]
+[ext_resource type="PackedScene" uid="uid://cfakfcxv3v857" path="res://scenes/components/time_console/time_console.tscn" id="2_ssmve"]
+[ext_resource type="PackedScene" uid="uid://nym5twbhmskj" path="res://scenes/components/stats_console/stats_console.tscn" id="3_r3ftu"]
+
+[node name="BaseScene" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+script = ExtResource("1_b3k4r")
+
+[node name="StatsConsole" parent="." instance=ExtResource("3_r3ftu")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="SaveClearButton" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_mode = 0
+text = "Clear save (debug only)"
+
+[node name="TimeConsole" parent="." instance=ExtResource("2_ssmve")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ActivityContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4

@@ -1,26 +1,14 @@
 class_name FirstScene
-extends Control
+extends BaseScene
 ## What the user first sees when opening the project
 
-const utils = preload("res://scenes/singletons/utils/utils.gd")
+const base_screen: PackedScene = preload("res://scenes/game_screens/base_scene/base_scene.tscn")
 
-# var _activities: Array[ActivitySlot] 
-
-func _add_activity(parameters: ActivityParameters) -> void:
-	var component: ActivitySlot = ActivitySlot.create_new_activity(parameters)
-	(%ActivityContainer as VBoxContainer).add_child(component)
-	
 func _ready() -> void:
-	var work_parameters: ActivityParameters = ActivityManager.ref.create_activity_parameters("Work",0,8,3,0,1,-3)
-	_add_activity(work_parameters)
-	var sleep_parameters: ActivityParameters = ActivityManager.ref.create_activity_parameters("Sleep",1,8,0,1,-1,3)
-	_add_activity(sleep_parameters)
+	var main_screen: BaseScene = base_screen.instantiate()
+	add_child(main_screen)
+	main_screen.add_activity(DefinedActivityParameters.work)
+	main_screen.add_activity(DefinedActivityParameters.sleep)
 	
-	utils.error_aware_connector((%SaveClearButton as Button).pressed, _clear_save)
-
-func _clear_save() -> void:
-	Game.ref.clear_data()
-	(%TimeConsole as TimeConsole)._update_label("all")
-	(%StatsConsole as StatsConsole)._update_label("all")
-	for activity: ActivitySlot in (%ActivityContainer as VBoxContainer).get_children():
-		activity._update_time_label()
+	var choices: Array[ChoiceParameters] = [DefinedChoiceParameters.test_choice_1,DefinedChoiceParameters.test_choice_2]
+	main_screen.add_choice(choices)
