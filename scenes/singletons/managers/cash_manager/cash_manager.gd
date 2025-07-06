@@ -11,6 +11,7 @@ signal cash_updated
 #signal cash_created
 #signal cash_consumed
 
+const utils = preload("res://scenes/singletons/utils/utils.gd")
 var data: Data = Game.ref.data
 
 func get_cash() -> int:
@@ -23,3 +24,12 @@ func change_cash(quantity: int) -> Error:
 	data.resources.cash += quantity
 	cash_updated.emit()
 	return OK
+
+func _ready() -> void:
+	utils.error_aware_connector(Clock.ref.tick, _activate_generation)
+
+func _activate_generation() -> void:
+	var error: Error = change_cash(data.resources.cash_generation)
+	if error == OK: cash_updated.emit()
+	else:
+		pass ## go into debt

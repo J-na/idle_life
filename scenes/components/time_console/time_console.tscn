@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfakfcxv3v857"]
+
+[ext_resource type="Script" uid="uid://c86jymswpkice" path="res://scenes/components/time_console/time_console.gd" id="1_q6vtj"]
+
+[node name="TimeConsole" type="VBoxContainer"]
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_q6vtj")
+
+[node name="TimeControlsContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="DaysPassedLabel" type="Label" parent="TimeControlsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"HeaderLarge"
+text = "Days passed: <value>"
+
+[node name="PauseButton" type="Button" parent="TimeControlsContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+text = "Pause
+"
+
+[node name="PlayButton" type="Button" parent="TimeControlsContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+text = "1x"
+
+[node name="TwoTimesSpeed" type="Button" parent="TimeControlsContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+text = "2x"
+
+[node name="AssignControlsContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="AvailableHoursLabel" type="Label" parent="AssignControlsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"HeaderLarge"
+text = "Available hours: <value>"
+
+[node name="TimeMultiplierButton" type="Button" parent="AssignControlsContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+text = "Assign x1"

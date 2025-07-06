@@ -27,16 +27,9 @@ func change_energy(quantity: int) -> Error:
 	energy_updated.emit()
 	return stress_error
 
-var _cycle_duration: float = 2.0
-var _cycle_progression: float = 0.0
-var _cycle_speed: float = 1.0
-var _restoration_rate: int = 1
-
 func _ready() -> void:
-	utils.error_aware_connector(Clock.ref.tick, _progress_cycle)
+	utils.error_aware_connector(Clock.ref.tick, _activate_generation)
 
-func _progress_cycle() -> void:
-	_cycle_progression += _cycle_speed
-	if _cycle_progression >= _cycle_duration:
-		var error: Error = change_energy(_restoration_rate)
-		if error == OK: energy_updated.emit()
+func _activate_generation() -> void:
+	var error: Error = change_energy(data.resources.energy_generation)
+	if error == OK: energy_updated.emit()

@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://nym5twbhmskj"]
+
+[ext_resource type="Script" uid="uid://djkcq7kgsiovt" path="res://scenes/components/stats_console/stats_console.gd" id="1_5aik1"]
+[ext_resource type="Theme" uid="uid://cyg5ph8t5r3an" path="res://assets/themes/style_box_flat/health_bar.tres" id="2_phbk2"]
+[ext_resource type="Theme" uid="uid://cw8nt1ujujme5" path="res://assets/themes/style_box_flat/stress_bar.tres" id="3_333rx"]
+
+[node name="StatsConsole" type="VBoxContainer"]
+size_flags_horizontal = 8
+script = ExtResource("1_5aik1")
+
+[node name="MoneyLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_type_variation = &"HeaderLarge"
+text = "Money: $<value>"
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 2
+theme = ExtResource("2_phbk2")
+step = 1.0
+value = 100.0
+rounded = true
+
+[node name="HealthLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_type_variation = &"HeaderLarge"
+text = "Health: <value>"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 2
+theme = ExtResource("3_333rx")
+
+[node name="StressLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"HeaderLarge"
+text = "Stress: <value>"
+
+[node name="EnergyBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 2
+theme = ExtResource("2_phbk2")
+step = 1.0
+value = 100.0
+rounded = true
+
+[node name="EnergyLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"HeaderLarge"
+text = "Energy: <value>"

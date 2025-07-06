@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cpe3f5ko5h5g8"]
 
-[ext_resource type="Script" uid="uid://baag01w4u3fkg" path="res://scenes/second_scene/second_scene.gd" id="1_qt48x"]
+[ext_resource type="Script" uid="uid://baag01w4u3fkg" path="res://scenes/game_screens/second_scene/second_scene.gd" id="1_qt48x"]
 [ext_resource type="StyleBox" uid="uid://bkip4ff5aqvrs" path="res://assets/themes/style_box_flat/transparent.tres" id="2_km0by"]
 
 [node name="SecondScene" type="Control"]

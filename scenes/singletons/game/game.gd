@@ -25,12 +25,16 @@ func _exit_tree() -> void:
 func clear_data() -> void:
 	data.resources.cash = 0 ## amount of cash owned by the player
 	data.resources.stress = 0
-	data.resources.hp = 100
+	data.resources.health = 100
 	data.resources.energy = 100
 	data.resources.days_passed = 0
 	data.resources.available_hours = 24
-	data.activities.activity_states[0].assigned_time = 0
-	data.progression.generator_unlocked = false
+	data.resources.cash_generation = 0
+	data.resources.health_generation = 0
+	data.resources.stress_generation = 0
+	data.resources.energy_generation = 0
+	for activity: ActivityParameters in data.activities.activity_states:
+		activity.assigned_time = 0
 	
 	
 		

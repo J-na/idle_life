@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3n24lm4fw3bc"]
+
+[ext_resource type="Script" uid="uid://dyjlv1j7qrys" path="res://scenes/components/activity_slot/activity_slot.gd" id="1_kvhgv"]
+
+[node name="ActivitySlot" type="MarginContainer"]
+offset_left = 447.0
+offset_right = 447.0
+offset_bottom = 50.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+script = ExtResource("1_kvhgv")
+
+[node name="ActivityContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="LabelContainer" type="VBoxContainer" parent="ActivityContainer"]
+layout_mode = 2
+
+[node name="ActivityTimeLabel" type="Label" parent="ActivityContainer/LabelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme_type_variation = &"HeaderLarge"
+text = "<activity>: <value> hours"
+
+[node name="ActivityPropertyLabel" type="Label" parent="ActivityContainer/LabelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"TooltipLabel"
+text = "Cash: <value>, health: <value>, stress: <value>, energy: <value>"
+
+[node name="AssignTimeButton" type="Button" parent="ActivityContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+text = "+1"
+
+[node name="UnassignTimeButton" type="Button" parent="ActivityContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "-1"

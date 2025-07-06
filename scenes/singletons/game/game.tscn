@@ -3,23 +3,23 @@
 [ext_resource type="Script" uid="uid://d4abjjrhlsu8" path="res://scenes/singletons/game/game.gd" id="1_udbrr"]
 [ext_resource type="PackedScene" uid="uid://cq0ir5anikmon" path="res://scenes/singletons/managers/cash_manager/cash_manager.tscn" id="2_5nw6e"]
 [ext_resource type="PackedScene" uid="uid://dp2m8dque1hp4" path="res://scenes/singletons/clock/clock.tscn" id="2_rcnbx"]
-[ext_resource type="PackedScene" uid="uid://c3t5iyrk83f5f" path="res://scenes/first_scene/first_scene.tscn" id="2_ub0xn"]
-[ext_resource type="PackedScene" uid="uid://bsw8lofm7jyhk" path="res://scenes/singletons/cash_generator/cash_generator.tscn" id="3_dos5a"]
+[ext_resource type="PackedScene" uid="uid://c3t5iyrk83f5f" path="res://scenes/game_screens/first_scene/first_scene.tscn" id="2_ub0xn"]
 [ext_resource type="PackedScene" uid="uid://cm45pdtl8cr0k" path="res://scenes/singletons/managers/stress_manager/stress_manager.tscn" id="3_natk1"]
-[ext_resource type="PackedScene" uid="uid://cpe3f5ko5h5g8" path="res://scenes/second_scene/second_scene.tscn" id="3_ub0xn"]
-[ext_resource type="PackedScene" uid="uid://cf5j45p4ylbtb" path="res://scenes/singletons/managers/time_manager/time_manager.tscn" id="3_xn7cj"]
+[ext_resource type="PackedScene" uid="uid://cpe3f5ko5h5g8" path="res://scenes/game_screens/second_scene/second_scene.tscn" id="3_ub0xn"]
+[ext_resource type="PackedScene" uid="uid://cf5j45p4ylbtb" path="res://scenes/singletons/managers/activity_manager/activity_manager.tscn" id="3_xn7cj"]
 [ext_resource type="PackedScene" uid="uid://tupif57224o7" path="res://scenes/singletons/managers/health_manager/health_manager.tscn" id="4_uuoi2"]
-[ext_resource type="Script" uid="uid://mcusbadnxe0u" path="res://scenes/singletons/managers/time_manager/time_manager.gd" id="4_y8721"]
+[ext_resource type="Script" uid="uid://mcusbadnxe0u" path="res://scenes/singletons/managers/activity_manager/activity_manager.gd" id="4_y8721"]
 [ext_resource type="Script" uid="uid://dymh61q4ncpew" path="res://scenes/singletons/managers/health_manager/health_manager.gd" id="5_wy5w4"]
 [ext_resource type="PackedScene" uid="uid://03fv2ywj7dam" path="res://scenes/singletons/managers/energy_manager/energy_manager.tscn" id="7_sg5qx"]
 [ext_resource type="Script" uid="uid://d13pb2gku4ept" path="res://scenes/singletons/managers/energy_manager/energy_manager.gd" id="8_xn7cj"]
+[ext_resource type="PackedScene" uid="uid://ck40ohs01c3e1" path="res://scenes/game_screens/baby_scene/baby_scene.tscn" id="11_y8721"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_udbrr")
 
 [node name="Clock" parent="." instance=ExtResource("2_rcnbx")]
 
-[node name="TimeManager" parent="." instance=ExtResource("3_xn7cj")]
+[node name="ActivityManager" parent="." instance=ExtResource("3_xn7cj")]
 script = ExtResource("4_y8721")
 
 [node name="CashManager" parent="." instance=ExtResource("2_5nw6e")]
@@ -32,8 +32,6 @@ script = ExtResource("5_wy5w4")
 [node name="EnergyManager" parent="." instance=ExtResource("7_sg5qx")]
 script = ExtResource("8_xn7cj")
 
-[node name="IdleonGenerator" parent="." instance=ExtResource("3_dos5a")]
-
 [node name="TabContainer" type="TabContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,11 +41,16 @@ grow_vertical = 2
 scale = Vector2(1, 1.00418)
 current_tab = 0
 
-[node name="FirstScene" parent="TabContainer" instance=ExtResource("2_ub0xn")]
+[node name="BabyScene" parent="TabContainer" instance=ExtResource("11_y8721")]
 layout_mode = 2
 metadata/_tab_index = 0
+
+[node name="FirstScene" parent="TabContainer" instance=ExtResource("2_ub0xn")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="SecondScene" parent="TabContainer" instance=ExtResource("3_ub0xn")]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 1
+metadata/_tab_index = 2

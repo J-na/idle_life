@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://iegys8lw66qq"]
+
+[ext_resource type="Script" uid="uid://cswqf6vhb173e" path="res://scenes/components/choice_screen/choice_screen.gd" id="1_pcsc3"]
+
+[node name="ChoiceScreen" type="HBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_pcsc3")

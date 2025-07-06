@@ -20,7 +20,7 @@ func get_stress() -> Array:
 func change_stress(quantity: int) -> Error:
 	var health_error: Error
 	if data.resources.stress + quantity > data.resources.max_stress: 
-		health_error = HealthManager.ref.change_hp(data.resources.max_stress - data.resources.stress - quantity )
+		health_error = HealthManager.ref.change_health(data.resources.max_stress - data.resources.stress - quantity )
 		data.resources.stress = data.resources.max_stress
 		print("over max stress")
 	elif data.resources.stress + quantity < 0: 
@@ -32,16 +32,9 @@ func change_stress(quantity: int) -> Error:
 	stress_updated.emit()
 	return health_error
 
-var _cycle_duration: float = 10
-var _cycle_progression: float = 0.0
-var _cycle_speed: float = 1.0
-var _reduction_rate: int = 3
-
 func _ready() -> void:
-	utils.error_aware_connector(Clock.ref.tick, _progress_cycle)
+	utils.error_aware_connector(Clock.ref.tick, _activate_generation)
 
-func _progress_cycle() -> void:
-	_cycle_progression += _cycle_speed
-	if _cycle_progression >= _cycle_duration:
-		var error: Error = change_stress(-1*_reduction_rate)
-		if error == OK: stress_updated.emit()
+func _activate_generation() -> void:
+	var error: Error = change_stress(data.resources.stress_generation)
+	if error == OK: stress_updated.emit()
