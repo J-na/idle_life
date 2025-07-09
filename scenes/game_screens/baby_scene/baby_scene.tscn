@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ck40ohs01c3e1"]
+[gd_scene load_steps=2 format=3 uid="uid://ck40ohs01c3e1"]
 
-[ext_resource type="PackedScene" uid="uid://cfakfcxv3v857" path="res://scenes/components/time_console/time_console.tscn" id="1_jdxlq"]
 [ext_resource type="Script" uid="uid://om7fm6kdwtfi" path="res://scenes/game_screens/baby_scene/baby_scene.gd" id="1_otobn"]
-[ext_resource type="PackedScene" uid="uid://nym5twbhmskj" path="res://scenes/components/stats_console/stats_console.tscn" id="2_lggpp"]
 
 [node name="BabyScene" type="Control"]
 layout_mode = 3
@@ -12,27 +10,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_otobn")
-
-[node name="BaseScene" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
-
-[node name="TimeConsole" parent="BaseScene" instance=ExtResource("1_jdxlq")]
-layout_mode = 2
-
-[node name="StatsConsole" parent="BaseScene" instance=ExtResource("2_lggpp")]
-layout_mode = 2
-
-[node name="ActivityContainer" type="VBoxContainer" parent="BaseScene"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4

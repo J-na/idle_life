@@ -32,9 +32,14 @@ window/size/viewport_height=900
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/copilot-advanced/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
+"res://addons/": "gray",
 "res://assets/": "red",
 "res://data_structures/": "yellow",
 "res://scenes/": "green",

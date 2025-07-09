@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfakfcxv3v857"]
+[gd_scene load_steps=4 format=3 uid="uid://cfakfcxv3v857"]
 
 [ext_resource type="Script" uid="uid://c86jymswpkice" path="res://scenes/components/time_console/time_console.gd" id="1_q6vtj"]
+[ext_resource type="Theme" uid="uid://s3vdgnfngf8t" path="res://assets/themes/buttons/base_button.tres" id="2_pf2u8"]
+[ext_resource type="Theme" uid="uid://bswpnwdxk7u3p" path="res://assets/themes/labels/information_label.tres" id="2_rxg2t"]
 
 [node name="TimeConsole" type="VBoxContainer"]
 size_flags_horizontal = 0
@@ -16,6 +18,7 @@ size_flags_vertical = 0
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("2_rxg2t")
 theme_type_variation = &"HeaderLarge"
 text = "Days passed: <value>"
 
@@ -23,6 +26,7 @@ text = "Days passed: <value>"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
+theme = ExtResource("2_pf2u8")
 text = "Pause
 "
 
@@ -30,12 +34,14 @@ text = "Pause
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
+theme = ExtResource("2_pf2u8")
 text = "1x"
 
 [node name="TwoTimesSpeed" type="Button" parent="TimeControlsContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
+theme = ExtResource("2_pf2u8")
 text = "2x"
 
 [node name="AssignControlsContainer" type="HBoxContainer" parent="."]
@@ -45,6 +51,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("2_rxg2t")
 theme_type_variation = &"HeaderLarge"
 text = "Available hours: <value>"
 
@@ -52,4 +59,5 @@ text = "Available hours: <value>"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
+theme = ExtResource("2_pf2u8")
 text = "Assign x1"

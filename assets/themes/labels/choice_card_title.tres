@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://6otx8a6gkji5"]
+
+[ext_resource type="FontVariation" uid="uid://depmjt3se36ae" path="res://assets/fonts/work_sans_bold.tres" id="1_lkl5o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fsmd6"]
+
+[resource]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_lkl5o")
+Label/styles/normal = SubResource("StyleBoxEmpty_fsmd6")

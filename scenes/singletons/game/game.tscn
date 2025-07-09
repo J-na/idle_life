@@ -32,7 +32,7 @@ script = ExtResource("5_wy5w4")
 [node name="EnergyManager" parent="." instance=ExtResource("7_sg5qx")]
 script = ExtResource("8_xn7cj")
 
-[node name="TabContainer" type="TabContainer" parent="."]
+[node name="GameContainer" type="TabContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -41,16 +41,16 @@ grow_vertical = 2
 scale = Vector2(1, 1.00418)
 current_tab = 0
 
-[node name="BabyScene" parent="TabContainer" instance=ExtResource("11_y8721")]
+[node name="BabyScene" parent="GameContainer" instance=ExtResource("11_y8721")]
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="FirstScene" parent="TabContainer" instance=ExtResource("2_ub0xn")]
+[node name="FirstScene" parent="GameContainer" instance=ExtResource("2_ub0xn")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="SecondScene" parent="TabContainer" instance=ExtResource("3_ub0xn")]
+[node name="SecondScene" parent="GameContainer" instance=ExtResource("3_ub0xn")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2

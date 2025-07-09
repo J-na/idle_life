@@ -28,7 +28,10 @@ func _update_time_label() -> void:
 	(%ActivityTimeLabel as Label).text = "%s: %s hours" %[_parameters.activity_name, _parameters.assigned_time]
 
 func _update_property_label() -> void:
-	(%ActivityPropertyLabel as Label).text = "Cash: %s, health: %s, stress: %s, energy: %s" %[_parameters.cash_change, _parameters.health_change, _parameters.stress_change, _parameters.energy_change]
+	if data.progression.activity_information_unlocked:
+		(%ActivityPropertyLabel as Label).text = "Cash: %s, health: %s, stress: %s, energy: %s" %[_parameters.cash_change, _parameters.health_change, _parameters.stress_change, _parameters.energy_change]
+	else:
+		(%ActivityPropertyLabel as Label).text = ""
 
 func update_button_labels() -> void:
 	(%AssignTimeButton as Button).text = "+%s" %ActivityManager.ref.assign_amount

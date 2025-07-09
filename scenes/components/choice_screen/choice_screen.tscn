@@ -1,15 +1,47 @@
-[gd_scene load_steps=2 format=3 uid="uid://iegys8lw66qq"]
+[gd_scene load_steps=4 format=3 uid="uid://iegys8lw66qq"]
 
 [ext_resource type="Script" uid="uid://cswqf6vhb173e" path="res://scenes/components/choice_screen/choice_screen.gd" id="1_pcsc3"]
+[ext_resource type="Theme" uid="uid://bjldxa82xmlug" path="res://assets/themes/labels/main_text.tres" id="3_mjijn"]
+[ext_resource type="Theme" uid="uid://bqbswr1eq2jmo" path="res://assets/themes/labels/choice_title.tres" id="3_p3cgv"]
 
-[node name="ChoiceScreen" type="HBoxContainer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+[node name="ChoiceScreen" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 script = ExtResource("1_pcsc3")
+
+[node name="DimLayer" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.0177324, 0.0177324, 0.0177324, 0.541176)
+
+[node name="TitleChoicesHolder" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="ChoiceTitle" type="Label" parent="TitleChoicesHolder"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("3_p3cgv")
+text = "Make your choice:"
+
+[node name="ChoiceText" type="Label" parent="TitleChoicesHolder"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("3_mjijn")
+text = "<choice text>"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ChoicesHolder" type="HBoxContainer" parent="TitleChoicesHolder"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8

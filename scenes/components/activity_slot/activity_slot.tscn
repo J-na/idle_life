@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3n24lm4fw3bc"]
+[gd_scene load_steps=4 format=3 uid="uid://d3n24lm4fw3bc"]
 
 [ext_resource type="Script" uid="uid://dyjlv1j7qrys" path="res://scenes/components/activity_slot/activity_slot.gd" id="1_kvhgv"]
+[ext_resource type="Theme" uid="uid://bswpnwdxk7u3p" path="res://assets/themes/labels/information_label.tres" id="2_vxa4b"]
+[ext_resource type="Theme" uid="uid://bjldxa82xmlug" path="res://assets/themes/labels/main_text.tres" id="3_f3hnj"]
 
 [node name="ActivitySlot" type="MarginContainer"]
 offset_left = 447.0
@@ -8,30 +10,36 @@ offset_right = 447.0
 offset_bottom = 50.0
 size_flags_horizontal = 0
 size_flags_vertical = 4
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 script = ExtResource("1_kvhgv")
 
-[node name="ActivityContainer" type="HBoxContainer" parent="."]
+[node name="ActivityButtonsContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="LabelContainer" type="VBoxContainer" parent="ActivityContainer"]
+[node name="LabelContainer" type="VBoxContainer" parent="ActivityButtonsContainer"]
 layout_mode = 2
 
-[node name="ActivityTimeLabel" type="Label" parent="ActivityContainer/LabelContainer"]
+[node name="ActivityTimeLabel" type="Label" parent="ActivityButtonsContainer/LabelContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
+theme = ExtResource("2_vxa4b")
 theme_type_variation = &"HeaderLarge"
 text = "<activity>: <value> hours"
 
-[node name="ActivityPropertyLabel" type="Label" parent="ActivityContainer/LabelContainer"]
+[node name="ActivityPropertyLabel" type="Label" parent="ActivityButtonsContainer/LabelContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("3_f3hnj")
 theme_type_variation = &"TooltipLabel"
 text = "Cash: <value>, health: <value>, stress: <value>, energy: <value>"
 
-[node name="AssignTimeButton" type="Button" parent="ActivityContainer"]
+[node name="AssignTimeButton" type="Button" parent="ActivityButtonsContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
@@ -40,7 +48,7 @@ size_flags_vertical = 4
 focus_mode = 0
 text = "+1"
 
-[node name="UnassignTimeButton" type="Button" parent="ActivityContainer"]
+[node name="UnassignTimeButton" type="Button" parent="ActivityButtonsContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://nym5twbhmskj"]
+[gd_scene load_steps=5 format=3 uid="uid://nym5twbhmskj"]
 
 [ext_resource type="Script" uid="uid://djkcq7kgsiovt" path="res://scenes/components/stats_console/stats_console.gd" id="1_5aik1"]
-[ext_resource type="Theme" uid="uid://cyg5ph8t5r3an" path="res://assets/themes/style_box_flat/health_bar.tres" id="2_phbk2"]
-[ext_resource type="Theme" uid="uid://cw8nt1ujujme5" path="res://assets/themes/style_box_flat/stress_bar.tres" id="3_333rx"]
+[ext_resource type="Theme" uid="uid://bswpnwdxk7u3p" path="res://assets/themes/labels/information_label.tres" id="2_333rx"]
+[ext_resource type="Theme" uid="uid://cyg5ph8t5r3an" path="res://assets/themes/pogress_bars/health_bar.tres" id="2_phbk2"]
+[ext_resource type="Theme" uid="uid://cw8nt1ujujme5" path="res://assets/themes/pogress_bars/stress_bar.tres" id="3_333rx"]
 
 [node name="StatsConsole" type="VBoxContainer"]
 size_flags_horizontal = 8
@@ -13,6 +14,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+theme = ExtResource("2_333rx")
 theme_type_variation = &"HeaderLarge"
 text = "Money: $<value>"
 
@@ -30,6 +32,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+theme = ExtResource("2_333rx")
 theme_type_variation = &"HeaderLarge"
 text = "Health: <value>"
 horizontal_alignment = 1
@@ -45,6 +48,7 @@ theme = ExtResource("3_333rx")
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("2_333rx")
 theme_type_variation = &"HeaderLarge"
 text = "Stress: <value>"
 
@@ -61,5 +65,6 @@ rounded = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("2_333rx")
 theme_type_variation = &"HeaderLarge"
 text = "Energy: <value>"

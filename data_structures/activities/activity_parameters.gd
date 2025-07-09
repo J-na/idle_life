@@ -11,3 +11,6 @@ extends Resource
 @export var stress_change: int 
 @export var health_change: int 
 @export var energy_change: int 
+@export var stress_max_change: int 
+@export var health_max_change: int 
+@export var energy_max_change: int 

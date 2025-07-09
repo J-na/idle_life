@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://ck2ctuxkk5dj5"]
+[gd_scene load_steps=6 format=3 uid="uid://ck2ctuxkk5dj5"]
 
 [ext_resource type="Script" uid="uid://ca6qeg8jyxf3c" path="res://scenes/components/choice_screen/choice_card/choice_card.gd" id="1_ajvia"]
+[ext_resource type="Theme" uid="uid://6otx8a6gkji5" path="res://assets/themes/labels/choice_card_title.tres" id="2_rjlug"]
+[ext_resource type="StyleBox" uid="uid://24dwqykw7uva" path="res://assets/themes/style_box_flat/lightgreen.tres" id="2_rxdja"]
+[ext_resource type="Theme" uid="uid://bjldxa82xmlug" path="res://assets/themes/labels/main_text.tres" id="3_rjlug"]
+[ext_resource type="Theme" uid="uid://drp5um3xytekw" path="res://assets/themes/labels/flavor_text.tres" id="4_rjlug"]
 
 [node name="ChoiceCardContainer" type="MarginContainer"]
 anchors_preset = 8
@@ -8,6 +12,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -315.0
+offset_right = 165.0
+offset_bottom = 315.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -18,23 +26,31 @@ theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 script = ExtResource("1_ajvia")
 
-[node name="ChoiceButton" type="Button" parent="."]
+[node name="ColorContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_rxdja")
+
+[node name="ChoiceButton" type="Button" parent="ColorContainer"]
 unique_name_in_owner = true
 clip_contents = true
-custom_minimum_size = Vector2(300, 600)
+custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 
-[node name="TitleLabel" type="Label" parent="ChoiceButton"]
+[node name="TitleLabel" type="Label" parent="ColorContainer/ChoiceButton"]
 unique_name_in_owner = true
-layout_mode = 2
-offset_left = 60.0
-offset_right = 240.0
-offset_bottom = 39.0
-theme_type_variation = &"HeaderLarge"
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.5
+offset_right = 120.5
+offset_bottom = 43.0
+grow_horizontal = 2
+theme = ExtResource("2_rjlug")
 text = "<choice title>"
 horizontal_alignment = 1
 
-[node name="ImageContainer" type="MarginContainer" parent="ChoiceButton"]
+[node name="ImageContainer" type="MarginContainer" parent="ColorContainer/ChoiceButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -46,21 +62,26 @@ offset_right = 90.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ChoiceIcon" type="Sprite2D" parent="ChoiceButton/ImageContainer"]
+[node name="ChoiceIcon" type="Sprite2D" parent="ColorContainer/ChoiceButton/ImageContainer"]
 
-[node name="EffectsLabel" type="Label" parent="ChoiceButton"]
+[node name="EffectsLabel" type="Label" parent="ColorContainer/ChoiceButton"]
 unique_name_in_owner = true
-layout_mode = 2
-offset_left = 71.0
-offset_top = 265.0
-offset_right = 229.0
-offset_bottom = 288.0
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -12.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
-theme_type_variation = &"TooltipLabel"
+theme = ExtResource("3_rjlug")
 text = "Effects: <effect text>"
 horizontal_alignment = 1
+autowrap_mode = 3
 
-[node name="FlavorTextLabel" type="Label" parent="ChoiceButton"]
+[node name="FlavorTextLabel" type="Label" parent="ColorContainer/ChoiceButton"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
@@ -73,6 +94,8 @@ offset_top = -23.0
 offset_right = 150.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("4_rjlug")
 theme_type_variation = &"TooltipLabel"
 text = "<Flavor text>: \"a generic choice\""
 horizontal_alignment = 1
+autowrap_mode = 3
