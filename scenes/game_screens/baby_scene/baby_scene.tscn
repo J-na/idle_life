@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://ck40ohs01c3e1"]
+[gd_scene load_steps=6 format=3 uid="uid://ck40ohs01c3e1"]
 
 [ext_resource type="Script" uid="uid://om7fm6kdwtfi" path="res://scenes/game_screens/baby_scene/baby_scene.gd" id="1_otobn"]
+[ext_resource type="Theme" uid="uid://byipc7885d36k" path="res://assets/themes/containers/margins.tres" id="2_ddixl"]
+[ext_resource type="PackedScene" uid="uid://nym5twbhmskj" path="res://scenes/components/stats_console/stats_console.tscn" id="3_qj15k"]
+[ext_resource type="Theme" uid="uid://s3vdgnfngf8t" path="res://assets/themes/buttons/base_button.tres" id="4_xhctp"]
+[ext_resource type="PackedScene" uid="uid://cfakfcxv3v857" path="res://scenes/components/time_console/time_console.tscn" id="5_hb3mc"]
 
 [node name="BabyScene" type="Control"]
 layout_mode = 3
@@ -10,3 +14,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_otobn")
+
+[node name="BaseSceneContainer" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ddixl")
+
+[node name="StatsConsole" parent="BaseSceneContainer" instance=ExtResource("3_qj15k")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="SaveClearButton" type="Button" parent="BaseSceneContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_mode = 0
+theme = ExtResource("4_xhctp")
+text = "Clear save (debug only)"
+
+[node name="TimeConsole" parent="BaseSceneContainer" instance=ExtResource("5_hb3mc")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ActivitiesContainer" type="VBoxContainer" parent="BaseSceneContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d3kcmvxcal73r"]
+[gd_scene load_steps=14 format=3 uid="uid://d3kcmvxcal73r"]
 
 [ext_resource type="Script" uid="uid://d4abjjrhlsu8" path="res://scenes/singletons/game/game.gd" id="1_udbrr"]
 [ext_resource type="PackedScene" uid="uid://cq0ir5anikmon" path="res://scenes/singletons/managers/cash_manager/cash_manager.tscn" id="2_5nw6e"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" uid="uid://dymh61q4ncpew" path="res://scenes/singletons/managers/health_manager/health_manager.gd" id="5_wy5w4"]
 [ext_resource type="PackedScene" uid="uid://03fv2ywj7dam" path="res://scenes/singletons/managers/energy_manager/energy_manager.tscn" id="7_sg5qx"]
 [ext_resource type="Script" uid="uid://d13pb2gku4ept" path="res://scenes/singletons/managers/energy_manager/energy_manager.gd" id="8_xn7cj"]
-[ext_resource type="PackedScene" uid="uid://cyrtmhyh80wky" path="res://scenes/game_screens/tutorial_scene/tutorial_scene.tscn" id="11_8dvbl"]
 [ext_resource type="PackedScene" uid="uid://ck40ohs01c3e1" path="res://scenes/game_screens/baby_scene/baby_scene.tscn" id="11_y8721"]
 
 [node name="Game" type="Node"]
@@ -42,21 +41,16 @@ grow_vertical = 2
 scale = Vector2(1, 1.00418)
 current_tab = 0
 
-[node name="TutorialScene" parent="GameContainer" instance=ExtResource("11_8dvbl")]
+[node name="BabyScene" parent="GameContainer" instance=ExtResource("11_y8721")]
 layout_mode = 2
 metadata/_tab_index = 0
-
-[node name="BabyScene" parent="GameContainer" instance=ExtResource("11_y8721")]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 1
 
 [node name="FirstScene" parent="GameContainer" instance=ExtResource("2_ub0xn")]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 2
+metadata/_tab_index = 1
 
 [node name="SecondScene" parent="GameContainer" instance=ExtResource("3_ub0xn")]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 3
+metadata/_tab_index = 2

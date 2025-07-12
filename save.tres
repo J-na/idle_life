@@ -1,0 +1,122 @@
+[gd_resource type="Resource" script_class="Data" load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://data_structures/activities/activity_parameters.gd" id="1_v37re"]
+[ext_resource type="Script" path="res://data_structures/data/data_activities.gd" id="2_d1hw3"]
+[ext_resource type="Script" path="res://data_structures/data/data_progression.gd" id="3_rqh7u"]
+[ext_resource type="Script" path="res://data_structures/data/data_resources.gd" id="4_ddq2i"]
+[ext_resource type="Script" path="res://data_structures/data/data.gd" id="5_pt7fg"]
+[ext_resource type="Script" path="res://data_structures/data/data_stats.gd" id="6_ftcuf"]
+
+[sub_resource type="Resource" id="Resource_2ejmb"]
+script = ExtResource("1_v37re")
+activity_name = "cry"
+internal_activity_id = 0
+assigned_time = 0
+max_time = 1
+cash_change = 0
+stress_change = 0
+health_change = 0
+energy_change = 0
+stress_max_change = 0
+health_max_change = 0
+energy_max_change = 0
+
+[sub_resource type="Resource" id="Resource_r0v35"]
+script = ExtResource("1_v37re")
+activity_name = "sleep"
+internal_activity_id = 1
+assigned_time = 0
+max_time = 20
+cash_change = 0
+stress_change = -1
+health_change = 1
+energy_change = 3
+stress_max_change = 1
+health_max_change = 1
+energy_max_change = 1
+
+[sub_resource type="Resource" id="Resource_ustsu"]
+script = ExtResource("1_v37re")
+activity_name = "cry"
+internal_activity_id = 2
+assigned_time = 0
+max_time = 8
+cash_change = 0
+stress_change = 1
+health_change = 0
+energy_change = -3
+stress_max_change = 0
+health_max_change = 0
+energy_max_change = 0
+
+[sub_resource type="Resource" id="Resource_lvm1w"]
+script = ExtResource("1_v37re")
+activity_name = "sleep"
+internal_activity_id = 3
+assigned_time = 0
+max_time = 8
+cash_change = 0
+stress_change = -1
+health_change = 1
+energy_change = 3
+stress_max_change = 0
+health_max_change = 0
+energy_max_change = 0
+
+[sub_resource type="Resource" id="Resource_vx2ek"]
+script = ExtResource("1_v37re")
+activity_name = "work"
+internal_activity_id = 4
+assigned_time = 0
+max_time = 8
+cash_change = 3
+stress_change = 1
+health_change = 0
+energy_change = -3
+stress_max_change = 0
+health_max_change = 0
+energy_max_change = 0
+
+[sub_resource type="Resource" id="Resource_f0mu0"]
+script = ExtResource("2_d1hw3")
+assign_amount = 1
+activity_data_array = Array[ExtResource("1_v37re")]([SubResource("Resource_2ejmb"), SubResource("Resource_r0v35"), SubResource("Resource_ustsu"), SubResource("Resource_lvm1w"), SubResource("Resource_vx2ek")])
+reference_activity_dict = {
+"baby sleep": SubResource("Resource_r0v35"),
+"cry": SubResource("Resource_ustsu"),
+"sleep": SubResource("Resource_vx2ek"),
+"tutorial cry": SubResource("Resource_2ejmb"),
+"work": SubResource("Resource_lvm1w")
+}
+
+[sub_resource type="Resource" id="Resource_x38by"]
+script = ExtResource("3_rqh7u")
+generator_unlocked = false
+activity_information_unlocked = false
+tutorial_progress = 2
+
+[sub_resource type="Resource" id="Resource_sdwon"]
+script = ExtResource("4_ddq2i")
+cash = 0
+stress = 0
+max_stress = 100
+health = 100
+max_health = 100
+energy = 100
+max_energy = 100
+cash_generation = 0
+health_generation = 0
+stress_generation = 0
+energy_generation = 0
+days_passed = 0
+available_hours = 24
+
+[sub_resource type="Resource" id="Resource_hv7ey"]
+script = ExtResource("6_ftcuf")
+
+[resource]
+script = ExtResource("5_pt7fg")
+resources = SubResource("Resource_sdwon")
+progression = SubResource("Resource_x38by")
+activities = SubResource("Resource_f0mu0")
+stats = SubResource("Resource_hv7ey")

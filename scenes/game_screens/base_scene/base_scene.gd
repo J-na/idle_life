@@ -4,8 +4,8 @@ extends Control
 const utils = preload("res://scenes/singletons/utils/utils.gd")
 var current_choice_screen: ChoiceScreen
 
-func add_activity(parameters: ActivityParameters) -> void:
-	var activity: ActivitySlot = ActivitySlot.create_new_activity(parameters)
+func add_activity(dict_id: String) -> void:
+	var activity: ActivitySlot = ActivityManager.ref.create_new_activity_by_name(dict_id)
 	(%ActivityContainer as VBoxContainer).add_child(activity)
 
 func add_choice(choices: Array[ChoiceParameters], choice_title: String = "Make your choice:", choice_text: String = "") -> void:
@@ -22,7 +22,7 @@ func _ready() -> void:
 
 func execute_choice(_parameters: ChoiceParameters) -> void:
 	if current_choice_screen != null:
-		for activity: ActivityParameters in _parameters.activity_unlocks:
+		for activity: String in _parameters.activity_unlocks:
 			add_activity(activity)
 		remove_child(current_choice_screen)
 
@@ -32,4 +32,3 @@ func _clear_save() -> void:
 	(%StatsConsole as StatsConsole)._update_label("all")
 	for activity: ActivitySlot in (%ActivityContainer as VBoxContainer).get_children():
 		activity._update_time_label()
-	
